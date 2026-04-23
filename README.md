@@ -4,7 +4,7 @@
 
 # hackingtool — Claude Code plugin
 
-**183 pentesting & OSINT tools at Claude's fingertips.** Plugin-skill wrapper around [Z4nzu/hackingtool](https://github.com/Z4nzu/hackingtool). Claude auto-runs what it can non-interactively and hands off the rest with copy-paste-ready commands.
+**183 pentesting & OSINT tools at Claude's fingertips.** Plugin-skill wrapper around [Z4nzu/hackingtool](https://github.com/Z4nzu/hackingtool). Claude Code runs locally — tries every tool first via native Bash, WSL, or Docker with purpose-built images. Only hands off on actual failure (hardware missing, stdin prompts, unavailable backend).
 
 ![Plugin](https://img.shields.io/badge/Claude_Code-Plugin-7B61FF?style=for-the-badge)
 ![Tools](https://img.shields.io/badge/183_Tools-00FF88?style=for-the-badge)
@@ -61,17 +61,23 @@ Screenshots from the upstream [Z4nzu/hackingtool](https://github.com/Z4nzu/hacki
 
 ---
 
-## What Claude actually does with it
+## How it works (try-first)
 
-Every tool in the index has capability flags. Claude reads them and picks an execution path:
+Claude Code runs on your machine. So does this plugin. Every tool invocation goes through `ht_run.py`, which:
 
-| Flag | Claude's behavior |
+1. Picks a backend: **native** (Linux/macOS), **WSL** (Windows + real distro), or **Docker** (anywhere with Docker Desktop).
+2. Maps known tools to **purpose-built Docker images** (`instrumentisto/nmap`, `projectdiscovery/nuclei`, `caffix/amass`, etc.) for fast pulls and clean ENTRYPOINTs. Falls back to `kalilinux/kali-rolling` for anything not mapped.
+3. **Tries the command first.** Permission denied? Retries with `sudo -n`. Binary missing? Suggests `--install`. Hardware not visible? *That's* when it hands off, with the actual error message.
+4. Only one pre-block: tools flagged `interactive` (they read stdin mid-run and can't be answered through Bash pipes). Bypass with `--force` + `--command` if you have non-interactive args.
+
+Capability flags in the index are hints — not veto votes. The old 🟢/🟡 split is a rough proxy for "how likely is this to run cleanly on the first attempt":
+
+| Icon | Meaning |
 |---|---|
-| 🟢 `runnable_by_claude` | Runs directly, pipes output back. |
-| 🟡 `requires_sudo` / `interactive` / `requires_gui` / `requires_hardware` | Hands you the exact command to run yourself. |
-| `long_running` | Runs with a raised timeout, or offers to hand off. |
+| 🟢 | High confidence — no sudo, no hardware, no GUI, no stdin prompts. Usually just works. |
+| 🟡 | May need `sudo -n` retry, GUI launch on desktop, or handoff on real failure (missing hardware, install needed). The plugin will try first and tell you what actually happened. |
 
-Current breakdown: **56 tools Claude runs directly, 127 tools handed off** (sudo / GUI / interactive / hardware).
+Current breakdown: **56 high-confidence runs · 127 may-need-fallback**.
 
 ---
 
