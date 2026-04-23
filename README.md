@@ -15,7 +15,7 @@ Built by [ariacodez](https://github.com/AKCODEZ) · wraps [Z4nzu/hackingtool](ht
 
 </div>
 
-# See it in ACtion 
+# See it in Action 
 
 <img width="1194" height="49" alt="image" src="https://github.com/user-attachments/assets/9a573541-eabb-4996-b305-c2c1f240cceb" />
 <img width="1152" height="396" alt="image" src="https://github.com/user-attachments/assets/77b75859-7733-4807-9005-6bfcdd3340f5" />
