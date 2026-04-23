@@ -30,6 +30,7 @@ Then point Claude at a target:
 "recon example.com"
 "hunt the username johndoe"
 "scan my repo for leaked secrets"
+"crack my own wifi before my neighbor does"
 ```
 
 Claude picks the tools. You read the output.
