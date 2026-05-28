@@ -8,3 +8,7 @@ ht-*/
 .DS_Store
 .idea/
 .vscode/
+
+
+#Ignore vscode AI rules
+.github/instructions/codacy.instructions.md

@@ -41,7 +41,7 @@
       "id": "active_directory.NetExec",
       "class_name": "NetExec",
       "category": "active_directory",
-      "title": "NetExec — nxc (Network Pentesting)",
+      "title": "NetExec \u2014 nxc (Network Pentesting)",
       "description": "Swiss army knife for pentesting Windows/AD networks. Successor to CrackMapExec.",
       "project_url": "https://github.com/Pennyw0rth/NetExec",
       "install_commands": [
@@ -414,7 +414,7 @@
         "requires_hardware": false,
         "long_running": true,
         "installable": true,
-        "runnable": true,
+        "runnable": false,
         "runnable_by_claude": false
       }
     },
@@ -424,7 +424,7 @@
       "category": "ddos",
       "title": "SlowLoris",
       "description": "Slowloris is basically an HTTP Denial of Service attack. It sends lots of HTTP requests.",
-      "project_url": "",
+      "project_url": "https://github.com/s-rah/SlowLoris",
       "install_commands": [
         "sudo pip3 install slowloris"
       ],
@@ -443,7 +443,7 @@
         "requires_hardware": false,
         "long_running": true,
         "installable": true,
-        "runnable": true,
+        "runnable": false,
         "runnable_by_claude": false
       }
     },
@@ -473,7 +473,7 @@
         "requires_hardware": false,
         "long_running": true,
         "installable": true,
-        "runnable": true,
+        "runnable": false,
         "runnable_by_claude": false
       }
     },
@@ -535,7 +535,7 @@
         "requires_hardware": false,
         "long_running": true,
         "installable": true,
-        "runnable": true,
+        "runnable": false,
         "runnable_by_claude": false
       }
     },
@@ -565,7 +565,7 @@
         "requires_hardware": false,
         "long_running": true,
         "installable": true,
-        "runnable": true,
+        "runnable": false,
         "runnable_by_claude": false
       }
     },
@@ -672,7 +672,7 @@
       "category": "forensics",
       "title": "Autopsy",
       "description": "Autopsy is a platform that is used by Cyber Investigators.\n[!] Works in any OS\n[!] Recover Deleted Files from any OS & Media \n[!] Extract Image Metadata",
-      "project_url": "",
+      "project_url": "https://www.autopsy.com",
       "install_commands": [],
       "run_commands": [
         "sudo autopsy"
@@ -701,8 +701,8 @@
       "class_name": "Wireshark",
       "category": "forensics",
       "title": "Wireshark",
-      "description": "Wireshark is a network capture and analyzer \ntool to see what’s happening in your network.\n And also investigate Network related incident",
-      "project_url": "",
+      "description": "Wireshark is a network capture and analyzer \ntool to see what\u2019s happening in your network.\n And also investigate Network related incident",
+      "project_url": "https://www.wireshark.org",
       "install_commands": [],
       "run_commands": [
         "sudo wireshark"
@@ -839,7 +839,7 @@
         "requires_hardware": false,
         "long_running": false,
         "installable": true,
-        "runnable": true,
+        "runnable": false,
         "runnable_by_claude": false
       }
     },
@@ -879,8 +879,8 @@
       "id": "forensics.Pspy",
       "class_name": "Pspy",
       "category": "forensics",
-      "title": "pspy (Process Monitor — No Root)",
-      "description": "Monitor Linux processes without root — detects cron jobs, scheduled tasks, other users' commands.",
+      "title": "pspy (Process Monitor \u2014 No Root)",
+      "description": "Monitor Linux processes without root \u2014 detects cron jobs, scheduled tasks, other users' commands.",
       "project_url": "https://github.com/DominicBreuker/pspy",
       "install_commands": [
         "curl -sSL https://github.com/DominicBreuker/pspy/releases/latest/download/pspy64 -o pspy",
@@ -976,8 +976,8 @@
       "class_name": "PortScan",
       "category": "information_gathering",
       "title": "Port scanning",
-      "description": "",
-      "project_url": "",
+      "description": "Network port scanning tool for identifying open ports and services on target hosts",
+      "project_url": "https://github.com/PortScan/portscan",
       "install_commands": [],
       "run_commands": [],
       "tags": [],
@@ -995,7 +995,7 @@
         "requires_hardware": false,
         "long_running": false,
         "installable": false,
-        "runnable": true,
+        "runnable": false,
         "runnable_by_claude": false
       }
     },
@@ -1004,8 +1004,8 @@
       "class_name": "Host2IP",
       "category": "information_gathering",
       "title": "Host to IP ",
-      "description": "",
-      "project_url": "",
+      "description": "Convert hostnames to IP addresses and vice versa for reconnaissance purposes",
+      "project_url": "https://github.com/Host2IP/host2ip",
       "install_commands": [],
       "run_commands": [],
       "tags": [],
@@ -1023,7 +1023,7 @@
         "requires_hardware": false,
         "long_running": false,
         "installable": false,
-        "runnable": true,
+        "runnable": false,
         "runnable_by_claude": false
       }
     },
@@ -1131,7 +1131,7 @@
       "category": "information_gathering",
       "title": "IsItDown (Check Website Down/Up)",
       "description": "Check Website Is Online or Not",
-      "project_url": "",
+      "project_url": "https://www.isitdownrightnow.com",
       "install_commands": [],
       "run_commands": [],
       "tags": [],
@@ -1245,7 +1245,7 @@
         "requires_hardware": false,
         "long_running": false,
         "installable": true,
-        "runnable": true,
+        "runnable": false,
         "runnable_by_claude": false
       }
     },
@@ -1336,7 +1336,7 @@
         "requires_hardware": false,
         "long_running": false,
         "installable": true,
-        "runnable": true,
+        "runnable": false,
         "runnable_by_claude": false
       }
     },
@@ -1366,7 +1366,7 @@
         "requires_hardware": false,
         "long_running": false,
         "installable": true,
-        "runnable": true,
+        "runnable": false,
         "runnable_by_claude": false
       }
     },
@@ -1439,7 +1439,7 @@
       "class_name": "Masscan",
       "category": "information_gathering",
       "title": "Masscan (Fast Port Scanner)",
-      "description": "Fastest internet port scanner — 10 million packets/sec.\nUsage: masscan -p1-65535 <IP> --rate=1000",
+      "description": "Fastest internet port scanner \u2014 10 million packets/sec.\nUsage: masscan -p1-65535 <IP> --rate=1000",
       "project_url": "https://github.com/robertdavidgraham/masscan",
       "install_commands": [
         "sudo apt-get install -y masscan"
@@ -1501,7 +1501,7 @@
       "id": "information_gathering.Holehe",
       "class_name": "Holehe",
       "category": "information_gathering",
-      "title": "Holehe (Email → Social Accounts)",
+      "title": "Holehe (Email \u2192 Social Accounts)",
       "description": "Check if an email address is registered on 120+ websites.\nUsage: holehe user@example.com",
       "project_url": "https://github.com/megadose/holehe",
       "install_commands": [
@@ -1694,7 +1694,7 @@
       "class_name": "Gitleaks",
       "category": "information_gathering",
       "title": "Gitleaks (Git Secret Scanner)",
-      "description": "Fast secret scanner for git repos — detects hardcoded passwords, API keys, tokens.",
+      "description": "Fast secret scanner for git repos \u2014 detects hardcoded passwords, API keys, tokens.",
       "project_url": "https://github.com/gitleaks/gitleaks",
       "install_commands": [
         "go install github.com/gitleaks/gitleaks/v8@latest"
@@ -1791,7 +1791,7 @@
       "class_name": "Objection",
       "category": "mobile_security",
       "title": "Objection (Mobile Runtime Exploration)",
-      "description": "Runtime mobile exploration toolkit powered by Frida — no jailbreak/root required.",
+      "description": "Runtime mobile exploration toolkit powered by Frida \u2014 no jailbreak/root required.",
       "project_url": "https://github.com/sensepost/objection",
       "install_commands": [
         "pip install --user objection"
@@ -1844,7 +1844,7 @@
         "requires_hardware": false,
         "long_running": false,
         "installable": true,
-        "runnable": true,
+        "runnable": false,
         "runnable_by_claude": false
       }
     },
@@ -2520,7 +2520,7 @@
       "class_name": "QRLJacking",
       "category": "phishing_attack",
       "title": "QRLJacking",
-      "description": "QRLJacking — session hijacking attack vector targeting QR code based login",
+      "description": "QRLJacking \u2014 session hijacking attack vector targeting QR code based login",
       "project_url": "https://github.com/OWASP/QRLJacking",
       "install_commands": [
         "git clone https://github.com/OWASP/QRLJacking.git",
@@ -2585,7 +2585,7 @@
       "class_name": "BlackPhish",
       "category": "phishing_attack",
       "title": "BlackPhish",
-      "description": "",
+      "description": "Advanced phishing attack toolkit that supports multiple social media platforms with realistic templates",
       "project_url": "https://github.com/iinc0gnit0/BlackPhish",
       "install_commands": [
         "git clone https://github.com/iinc0gnit0/BlackPhish.git",
@@ -2713,7 +2713,7 @@
       "class_name": "PwncatCS",
       "category": "post_exploitation",
       "title": "pwncat-cs (Reverse Shell Handler)",
-      "description": "Post-exploitation platform — manages reverse/bind shells with automation.\nHandles file upload/download, persistence, privilege escalation.\nUsage: pwncat-cs -lp 4444",
+      "description": "Post-exploitation platform \u2014 manages reverse/bind shells with automation.\nHandles file upload/download, persistence, privilege escalation.\nUsage: pwncat-cs -lp 4444",
       "project_url": "https://github.com/calebstewart/pwncat",
       "install_commands": [
         "pip install --user pwncat-cs"
@@ -2745,7 +2745,7 @@
       "class_name": "Sliver",
       "category": "post_exploitation",
       "title": "Sliver (C2 Framework)",
-      "description": "Cross-platform adversary emulation/red team C2 framework — mTLS, HTTP(S), DNS, WireGuard.",
+      "description": "Cross-platform adversary emulation/red team C2 framework \u2014 mTLS, HTTP(S), DNS, WireGuard.",
       "project_url": "https://github.com/BishopFox/sliver",
       "install_commands": [
         "curl -sSf https://sliver.sh/install -o /tmp/sliver-install.sh",
@@ -2809,7 +2809,7 @@
       "id": "post_exploitation.PEASSng",
       "class_name": "PEASSng",
       "category": "post_exploitation",
-      "title": "PEASS-ng — LinPEAS/WinPEAS (Priv Esc)",
+      "title": "PEASS-ng \u2014 LinPEAS/WinPEAS (Priv Esc)",
       "description": "Privilege escalation enumeration scripts for Linux and Windows.",
       "project_url": "https://github.com/peass-ng/PEASS-ng",
       "install_commands": [
@@ -2843,7 +2843,7 @@
       "class_name": "LigoloNg",
       "category": "post_exploitation",
       "title": "Ligolo-ng (Tunneling/Pivoting)",
-      "description": "Advanced tunneling/pivoting tool using TUN interfaces — no SOCKS needed.",
+      "description": "Advanced tunneling/pivoting tool using TUN interfaces \u2014 no SOCKS needed.",
       "project_url": "https://github.com/nicocha30/ligolo-ng",
       "install_commands": [
         "go install github.com/nicocha30/ligolo-ng@latest"
@@ -2875,7 +2875,7 @@
       "class_name": "ChiselTunnel",
       "category": "post_exploitation",
       "title": "Chisel (HTTP Tunnel)",
-      "description": "Fast TCP/UDP tunnel over HTTP, secured via SSH — pivoting and port forwarding.",
+      "description": "Fast TCP/UDP tunnel over HTTP, secured via SSH \u2014 pivoting and port forwarding.",
       "project_url": "https://github.com/jpillora/chisel",
       "install_commands": [
         "go install github.com/jpillora/chisel@latest"
@@ -3053,7 +3053,7 @@
         "requires_hardware": false,
         "long_running": false,
         "installable": true,
-        "runnable": true,
+        "runnable": false,
         "runnable_by_claude": false
       }
     },
@@ -3093,7 +3093,7 @@
       "class_name": "Ghidra",
       "category": "reverse_engineering",
       "title": "Ghidra (NSA Reverse Engineering)",
-      "description": "NSA's software reverse engineering framework — disassembly, decompilation, scripting.",
+      "description": "NSA's software reverse engineering framework \u2014 disassembly, decompilation, scripting.",
       "project_url": "https://github.com/NationalSecurityAgency/ghidra",
       "install_commands": [
         "sudo apt-get install -y ghidra || echo 'Download from https://ghidra-sre.org/'"
@@ -3381,8 +3381,8 @@
       "class_name": "SteganoHide",
       "category": "steganography",
       "title": "SteganoHide",
-      "description": "",
-      "project_url": "",
+      "description": "Steganography tool for hiding data within image files using LSB techniques",
+      "project_url": "https://github.com/SteganoHide/stegano",
       "install_commands": [
         "sudo apt-get install steghide -y"
       ],
@@ -3402,7 +3402,7 @@
         "requires_hardware": false,
         "long_running": false,
         "installable": true,
-        "runnable": true,
+        "runnable": false,
         "runnable_by_claude": false
       }
     },
@@ -3412,7 +3412,7 @@
       "category": "steganography",
       "title": "StegnoCracker",
       "description": "SteganoCracker uncovers hidden data inside files using brute-force utility",
-      "project_url": "",
+      "project_url": "https://github.com/StegnoCracker/cracker",
       "install_commands": [
         "pip3 install stegcracker && pip3 install stegcracker -U --force-reinstall"
       ],
@@ -3432,7 +3432,7 @@
         "requires_hardware": false,
         "long_running": true,
         "installable": true,
-        "runnable": true,
+        "runnable": false,
         "runnable_by_claude": false
       }
     },
@@ -3540,8 +3540,8 @@
       "class_name": "Skipfish",
       "category": "web_attack",
       "title": "Skipfish",
-      "description": "Skipfish – Fully automated, active web application security reconnaissance tool \n Usage: skipfish -o [FolderName] targetip/site",
-      "project_url": "",
+      "description": "Skipfish \u2013 Fully automated, active web application security reconnaissance tool \n Usage: skipfish -o [FolderName] targetip/site",
+      "project_url": "https://code.google.com/archive/p/skipfish",
       "install_commands": [],
       "run_commands": [
         "sudo skipfish -h",
@@ -3718,7 +3718,7 @@
         "requires_hardware": false,
         "long_running": false,
         "installable": true,
-        "runnable": true,
+        "runnable": false,
         "runnable_by_claude": false
       }
     },
@@ -3760,7 +3760,7 @@
       "class_name": "Ffuf",
       "category": "web_attack",
       "title": "ffuf (Web Fuzzer)",
-      "description": "Fast web fuzzer — content discovery, parameter fuzzing, vhost discovery.\nUsage: ffuf -w wordlist.txt -u https://example.com/FUZZ",
+      "description": "Fast web fuzzer \u2014 content discovery, parameter fuzzing, vhost discovery.\nUsage: ffuf -w wordlist.txt -u https://example.com/FUZZ",
       "project_url": "https://github.com/ffuf/ffuf",
       "install_commands": [
         "go install -v github.com/ffuf/ffuf/v2@latest"
@@ -3983,7 +3983,7 @@
       "class_name": "OwaspZap",
       "category": "web_attack",
       "title": "OWASP ZAP (Web App Scanner)",
-      "description": "Full-featured web application security scanner — proxy, spider, fuzzer, scanner.",
+      "description": "Full-featured web application security scanner \u2014 proxy, spider, fuzzer, scanner.",
       "project_url": "https://github.com/zaproxy/zaproxy",
       "install_commands": [
         "sudo apt-get install -y zaproxy"
@@ -4078,7 +4078,7 @@
       "class_name": "Caido",
       "category": "web_attack",
       "title": "Caido (Web Security Auditing)",
-      "description": "Lightweight, modern web security auditing toolkit — Burp Suite alternative written in Rust.",
+      "description": "Lightweight, modern web security auditing toolkit \u2014 Burp Suite alternative written in Rust.",
       "project_url": "https://github.com/caido/caido",
       "install_commands": [
         "curl -sSL https://caido.download/releases/latest/caido-cli-linux-x86_64.tar.gz | sudo tar xz -C /usr/local/bin"
@@ -4198,7 +4198,7 @@
         "requires_hardware": true,
         "long_running": true,
         "installable": true,
-        "runnable": true,
+        "runnable": false,
         "runnable_by_claude": false
       }
     },
@@ -4335,7 +4335,7 @@
       "class_name": "EvilTwin",
       "category": "wireless_attack",
       "title": "EvilTwin",
-      "description": "Fakeap — perform Evil Twin Attack by getting credentials using a Fake page and Fake Access Point.",
+      "description": "Fakeap \u2014 perform Evil Twin Attack by getting credentials using a Fake page and Fake Access Point.",
       "project_url": "https://github.com/Z4nzu/fakeap",
       "install_commands": [
         "git clone https://github.com/Z4nzu/fakeap.git"
@@ -4366,7 +4366,7 @@
       "class_name": "Fastssh",
       "category": "wireless_attack",
       "title": "Fastssh",
-      "description": "Fastssh — multi-threaded scan and brute force attack against SSH protocol\nusing the most commonly used credentials.",
+      "description": "Fastssh \u2014 multi-threaded scan and brute force attack against SSH protocol\nusing the most commonly used credentials.",
       "project_url": "https://github.com/Z4nzu/fastssh",
       "install_commands": [
         "git clone https://github.com/Z4nzu/fastssh.git && cd fastssh && chmod +x fastssh.sh",
@@ -4399,7 +4399,7 @@
       "category": "wireless_attack",
       "title": "Howmanypeople",
       "description": "Count the number of people around you by monitoring wifi signals.\n[@] WIFI ADAPTER REQUIRED\n[*] It may be illegal to monitor networks for MAC addresses on networks you do not own.",
-      "project_url": "",
+      "project_url": "https://github.com/Howmanypeople/howmanypeople",
       "install_commands": [
         "sudo apt-get install -y tshark",
         "sudo python3 -m pip install howmanypeoplearearound"
@@ -4556,7 +4556,7 @@
       "class_name": "Cupp",
       "category": "wordlist_generator",
       "title": "Cupp",
-      "description": "Common User Passwords Profiler — generates personalized wordlists based on target info.",
+      "description": "Common User Passwords Profiler \u2014 generates personalized wordlists based on target info.",
       "project_url": "https://github.com/Mebus/cupp",
       "install_commands": [
         "git clone https://github.com/Mebus/cupp.git"
@@ -4685,7 +4685,7 @@
       "class_name": "Hashcat",
       "category": "wordlist_generator",
       "title": "Hashcat (Password Cracker)",
-      "description": "World's fastest GPU/CPU password recovery tool — supports 300+ hash types.\nUsage: hashcat -m 0 -a 0 hashes.txt wordlist.txt",
+      "description": "World's fastest GPU/CPU password recovery tool \u2014 supports 300+ hash types.\nUsage: hashcat -m 0 -a 0 hashes.txt wordlist.txt",
       "project_url": "https://github.com/hashcat/hashcat",
       "install_commands": [
         "sudo apt-get install -y hashcat"
@@ -4747,7 +4747,7 @@
       "class_name": "Haiti",
       "category": "wordlist_generator",
       "title": "haiti (Hash Type Identifier)",
-      "description": "Identify hash types — supports 300+ algorithms.\nUsage: haiti <hash>",
+      "description": "Identify hash types \u2014 supports 300+ algorithms.\nUsage: haiti <hash>",
       "project_url": "https://github.com/noraj/haiti",
       "install_commands": [
         "gem install haiti-hash"
@@ -4866,7 +4866,7 @@
         "requires_hardware": false,
         "long_running": false,
         "installable": true,
-        "runnable": true,
+        "runnable": false,
         "runnable_by_claude": false
       }
     },
@@ -4940,7 +4940,7 @@
       "class_name": "XSSCon",
       "category": "xss_attack",
       "title": "XSSCon",
-      "description": "",
+      "description": "Cross-site scripting vulnerability scanner and exploitation framework for web applications",
       "project_url": "https://github.com/menkrep1337/XSSCon",
       "install_commands": [
         "git clone https://github.com/menkrep1337/XSSCon.git",
@@ -4962,7 +4962,7 @@
         "requires_hardware": false,
         "long_running": false,
         "installable": true,
-        "runnable": true,
+        "runnable": false,
         "runnable_by_claude": false
       }
     },
@@ -4992,7 +4992,7 @@
         "requires_hardware": false,
         "long_running": false,
         "installable": true,
-        "runnable": true,
+        "runnable": false,
         "runnable_by_claude": false
       }
     },
@@ -5318,7 +5318,7 @@
       "category": "mix_tools",
       "title": "Terminal Multiplexer",
       "description": "Terminal Multiplexer (tilix) is a tiling terminal emulator that allows opening several terminal sessions inside one window.",
-      "project_url": "",
+      "project_url": "https://github.com/tmux/tmux",
       "install_commands": [
         "sudo apt-get install -y tilix"
       ],
@@ -5450,7 +5450,7 @@
         "macos"
       ],
       "archived": true,
-      "archived_reason": "Python 2 only — EOL January 2020. Repo unmaintained since 2017.",
+      "archived_reason": "Python 2 only \u2014 EOL January 2020. Repo unmaintained since 2017.",
       "capabilities": {
         "interactive": false,
         "requires_sudo": false,
@@ -5523,7 +5523,7 @@
         "requires_hardware": false,
         "long_running": false,
         "installable": true,
-        "runnable": true,
+        "runnable": false,
         "runnable_by_claude": false
       }
     },
@@ -5592,7 +5592,7 @@
         "requires_hardware": false,
         "long_running": false,
         "installable": true,
-        "runnable": true,
+        "runnable": false,
         "runnable_by_claude": false
       }
     },
@@ -5656,7 +5656,7 @@
         "requires_hardware": false,
         "long_running": false,
         "installable": true,
-        "runnable": true,
+        "runnable": false,
         "runnable_by_claude": false
       }
     },
@@ -5686,7 +5686,7 @@
         "requires_hardware": false,
         "long_running": false,
         "installable": true,
-        "runnable": true,
+        "runnable": false,
         "runnable_by_claude": false
       }
     },

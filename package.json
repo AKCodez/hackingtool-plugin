@@ -1,0 +1,225 @@
+{
+  "name": "hackingtool",
+  "displayName": "HackingTool - Security Testing Suite",
+  "description": "183+ pentesting and OSINT tools (nmap, nuclei, amass, subfinder, sherlock, maigret, trufflehog, sqlmap, impacket) for VS Code. Runs locally via native Bash, WSL, or Docker.",
+  "version": "0.2.0",
+  "publisher": "akcodez",
+  "icon": "images/logo.png",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "categories": [
+    "Other",
+    "Testing"
+  ],
+  "keywords": [
+    "security",
+    "pentesting",
+    "osint",
+    "hacking",
+    "nmap",
+    "nuclei",
+    "recon"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "hackingtool.preflight",
+        "title": "HackingTool: Run Preflight Check",
+        "icon": "$(pulse)"
+      },
+      {
+        "command": "hackingtool.searchTools",
+        "title": "HackingTool: Search Tools",
+        "icon": "$(search)"
+      },
+      {
+        "command": "hackingtool.runTool",
+        "title": "HackingTool: Run Tool",
+        "icon": "$(play)"
+      },
+      {
+        "command": "hackingtool.showEnvironment",
+        "title": "HackingTool: Show Environment Info",
+        "icon": "$(info)"
+      },
+      {
+        "command": "hackingtool.refreshTools",
+        "title": "HackingTool: Refresh Tool Index",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "hackingtool.toolExplorer.refresh",
+        "title": "Refresh",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "hackingtool.toolExplorer.runTool",
+        "title": "Run Tool",
+        "icon": "$(play)"
+      },
+      {
+        "command": "hackingtool.toolExplorer.showInfo",
+        "title": "Show Tool Info",
+        "icon": "$(info)"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "hackingtool-explorer",
+          "title": "HackingTool",
+          "icon": "$(shield)"
+        }
+      ]
+    },
+    "views": {
+      "hackingtool-explorer": [
+        {
+          "id": "hackingtoolToolExplorer",
+          "name": "Tool Explorer",
+          "icon": "$(shield)",
+          "contextualTitle": "HackingTool"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "hackingtool.toolExplorer.refresh",
+          "when": "view == hackingtoolToolExplorer",
+          "group": "navigation"
+        },
+        {
+          "command": "hackingtool.preflight",
+          "when": "view == hackingtoolToolExplorer",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "hackingtool.toolExplorer.runTool",
+          "when": "view == hackingtoolToolExplorer && viewItem == tool",
+          "group": "inline"
+        },
+        {
+          "command": "hackingtool.toolExplorer.showInfo",
+          "when": "view == hackingtoolToolExplorer && viewItem == tool",
+          "group": "inline"
+        }
+      ]
+    },
+    "languageModelTools": [
+      {
+        "name": "hackingtool_preflight",
+        "toolReferenceName": "htPreflight",
+        "displayName": "HackingTool: Preflight Check",
+        "modelDescription": "Check whether the local system has the required pentest/OSINT tools available (nmap, nuclei, subfinder, etc.) and which execution backend (native, WSL, Docker) will be used. Always run this before any scan or OSINT task to confirm readiness.",
+        "canBeReferencedInPrompt": true,
+        "icon": "$(pulse)",
+        "inputSchema": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      {
+        "name": "hackingtool_search",
+        "toolReferenceName": "htSearch",
+        "displayName": "HackingTool: Search Tools",
+        "modelDescription": "Search the index of 183+ pentest and OSINT tools by name, category, tag, or capability. Returns matching tools with their IDs, descriptions, and supported OS. Use this to discover the correct tool_id before calling hackingtool_run.",
+        "canBeReferencedInPrompt": true,
+        "icon": "$(search)",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Free-text search across tool name and description (e.g. 'subdomain', 'nmap', 'osint')"
+            },
+            "category": {
+              "type": "string",
+              "description": "Filter by category slug (e.g. 'network_scanner', 'osint', 'web_application')"
+            },
+            "tag": {
+              "type": "string",
+              "description": "Filter by tag (e.g. 'subdomain', 'password', 'recon')"
+            },
+            "capability": {
+              "type": "string",
+              "description": "Filter by capability flag (e.g. 'installable', 'runnable')"
+            }
+          }
+        }
+      },
+      {
+        "name": "hackingtool_run",
+        "toolReferenceName": "htRun",
+        "displayName": "HackingTool: Run Tool",
+        "modelDescription": "Execute a pentest or OSINT tool by its ID with optional arguments. Returns stdout, stderr, and exit code. Use hackingtool_search first to find the correct tool_id. Example: tool_id='nmap', args='-sV -p 80,443 192.168.1.1'",
+        "canBeReferencedInPrompt": true,
+        "icon": "$(play)",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "tool_id": {
+              "type": "string",
+              "description": "The tool ID to execute (e.g. 'nmap', 'nuclei', 'subfinder'). Use hackingtool_search to find valid IDs."
+            },
+            "args": {
+              "type": "string",
+              "description": "Command-line arguments to pass to the tool (e.g. '-sV -p 80,443 192.168.1.1')"
+            },
+            "timeout": {
+              "type": "number",
+              "description": "Execution timeout in seconds (default: 180)"
+            }
+          },
+          "required": ["tool_id"]
+        }
+      }
+    ],
+    "configuration": {
+      "title": "HackingTool",
+      "properties": {
+        "hackingtool.pythonPath": {
+          "type": "string",
+          "default": "python3",
+          "description": "Path to Python 3 executable"
+        },
+        "hackingtool.defaultTimeout": {
+          "type": "number",
+          "default": 180,
+          "description": "Default timeout for tool execution (seconds)"
+        },
+        "hackingtool.preferredBackend": {
+          "type": "string",
+          "enum": ["auto", "native", "wsl", "docker"],
+          "default": "auto",
+          "description": "Preferred execution backend (auto-detect or force specific)"
+        },
+        "hackingtool.showOutputChannel": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show output channel when running tools"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@vscode/vsce": "^2.19.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AKCodez/hackingtool-plugin.git"
+  },
+  "license": "MIT"
+}
