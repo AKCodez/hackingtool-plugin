@@ -447,6 +447,8 @@ If hackingtool is a sibling directory of this repo, `--hackingtool-path` isn't n
 hackingtool-plugin/
 ├── .claude-plugin/
 │   └── marketplace.json          # marketplace entry
+├── docs/
+│   └── INTEGRATION_GUIDE.md      # usage guide (install, workflows, troubleshooting)
 ├── images/                       # screenshots + logo
 ├── README.md                     # this file
 └── plugins/hackingtool/
