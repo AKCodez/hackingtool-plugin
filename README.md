@@ -2,7 +2,7 @@
 
 <img src="images/logo.svg" alt="HackingTool" width="600">
 
-# hackingtool — Claude Code pluginssssssss
+# hackingtool — Claude Code plugin
 
 **183 pentesting & OSINT tools at Claude's fingertips.** Plugin-skill wrapper around [Z4nzu/hackingtool](https://github.com/Z4nzu/hackingtool). Runs locally on any OS — native Bash on Linux/macOS, WSL on Windows, or purpose-built Docker images (`instrumentisto/nmap`, `projectdiscovery/nuclei`, `caffix/amass`, and 20+ more). The skill picks the right backend and image automatically.
 
