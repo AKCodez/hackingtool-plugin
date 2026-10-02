@@ -28,6 +28,12 @@ def _has(cmd: str) -> bool:
 
 
 def _detect_host() -> str:
+    # When the scripts are bootstrapped inside a container (e.g. a Windows
+    # host with no native Python), platform.system() reports the container's
+    # OS, not the host's. The launcher passes the real host via HT_FORCE_HOST.
+    forced = os.environ.get("HT_FORCE_HOST", "").strip().lower()
+    if forced in ("linux", "macos", "windows", "unknown"):
+        return forced
     s = platform.system().lower()
     if s == "darwin":
         return "macos"
@@ -75,14 +81,31 @@ def _wsl_distros() -> list[str]:
 
 
 def _docker_ready() -> bool:
+    # The launcher already confirmed the host daemon before bootstrapping into
+    # a container, and the docker CLI may be absent inside that container even
+    # though the socket is mounted. HT_FORCE_DOCKER carries that verdict in.
+    forced = os.environ.get("HT_FORCE_DOCKER", "").strip().lower()
+    if forced in ("1", "true", "yes"):
+        return True
+    if forced in ("0", "false", "no"):
+        return False
     if not _has("docker"):
         return False
+    # Probe the daemon with `docker version` rather than `docker info`:
+    # it is much lighter (no image/network/plugin enumeration) yet still
+    # round-trips to the daemon, so it returns non-zero when the daemon is
+    # down. On Windows Docker Desktop `docker info` frequently exceeds a
+    # short timeout on a cold or busy daemon, yielding a false negative that
+    # collapses the backend to `fallback`. A generous timeout absorbs the
+    # cold-start delay without hanging.
     try:
         r = subprocess.run(
-            ["docker", "info"],
-            capture_output=True, timeout=5,
+            ["docker", "version", "--format", "{{.Server.Version}}"],
+            capture_output=True, timeout=15,
         )
-        return r.returncode == 0
+        # Server section only renders when the daemon answered; a client-only
+        # response (daemon unreachable) exits non-zero.
+        return r.returncode == 0 and bool(r.stdout.strip())
     except (subprocess.TimeoutExpired, OSError):
         return False
 

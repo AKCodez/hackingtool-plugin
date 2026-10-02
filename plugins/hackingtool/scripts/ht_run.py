@@ -227,7 +227,11 @@ def run_docker(command: str, timeout: int, image: str,
     command as args to the image's ENTRYPOINT. Otherwise we run via bash -lc
     (required for the generic kali-rolling image).
     """
-    cwd = os.getcwd().replace("\\", "/")
+    # When bootstrapped inside a container, os.getcwd() is the bootstrap
+    # container's path, not the host's — but the tool container is launched by
+    # the *host* daemon via the mounted socket, so the volume source must be a
+    # host path. The launcher passes the real host cwd via HT_HOST_CWD.
+    cwd = (os.environ.get("HT_HOST_CWD") or os.getcwd()).replace("\\", "/")
     if len(cwd) > 1 and cwd[1] == ":":
         cwd = "/" + cwd[0].lower() + cwd[2:]
 
