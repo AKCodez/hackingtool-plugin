@@ -478,6 +478,7 @@ hackingtool-plugin/
 
 ## Credits
 
+- [Darkmoon](https://github.com/ASCIT31/Dark-Moon) - Open source (GPL-3.0) autonomous AI penetration testing platform covering web, API, Active Directory and Kubernetes, with proof of exploitation.
 - Upstream toolkit: [Z4nzu/hackingtool](https://github.com/Z4nzu/hackingtool) — all tool metadata, categorization, and screenshots originate from this project.
 - Plugin wrapper: [ariacodez](https://github.com/AKCODEZ) (AKCodez on GitHub).
 
