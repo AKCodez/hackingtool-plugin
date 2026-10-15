@@ -50,12 +50,12 @@ DOCKER_IMAGE_OVERRIDES: dict[str, str] = {
     "web_attack.Nuclei":                    "projectdiscovery/nuclei",
     "web_attack.Katana":                    "projectdiscovery/katana",
     "web_attack.Ffuf":                      "secsi/ffuf",
-    "web_attack.Gobuster":                  "devopsworks/gobuster",
+    "web_attack.Gobuster":                  "parrotsec/gobuster",
     "web_attack.Dirsearch":                 "loqutus/dirsearch",
     "web_attack.TestSSL":                   "drwetter/testssl.sh",
     "web_attack.Wafw00f":                   "0xsauby/wafw00f",
     "web_attack.Nikto":                     "frapsoft/nikto",
-    "sql_injection.Sqlmap":                 "paoloo/sqlmap",
+    "sql_injection.Sqlmap":                 "parrotsec/sqlmap",
     "phishing_attack.Dnstwist":             "elceef/dnstwist",
     "active_directory.Impacket":            "rflathers/impacket",
     "active_directory.NetExec":             "byt3bl33d3r/netexec",
@@ -374,8 +374,9 @@ def main():
         ), indent=2))
         return
 
-    # Apply user's docker image override
-    if args.docker_image and backend == "docker":
+    # Apply user's docker image override (harmless unless a docker run happens,
+    # incl. an auto-fallback to docker below).
+    if args.docker_image:
         DOCKER_IMAGE_OVERRIDES[tool["id"]] = args.docker_image
 
     # First attempt
@@ -420,6 +421,33 @@ def main():
             ), indent=2))
             return
         if err_class == "not_installed":
+            # Auto-fallback: if the native binary is missing but Docker is
+            # available and the backend was auto-resolved (user didn't force
+            # native), transparently retry the same command on Docker. This is
+            # the common case on macOS, where no native pentest tools are
+            # installed but Docker Desktop is running.
+            if (backend == "native"
+                    and args.backend == "auto"
+                    and env.get("docker")):
+                docker_result = execute(tool, command, "docker", args.timeout,
+                                        distro, args.network_host, args.privileged)
+                if docker_result.get("status") == "ok":
+                    docker_result["auto_fell_back_to_docker"] = True
+                    docker_result["tool"] = tool["id"]
+                    docker_result["title"] = tool["title"]
+                    print(json.dumps(docker_result, indent=2, ensure_ascii=False))
+                    return
+                # Docker also failed — surface both attempts for diagnosis.
+                print(json.dumps(fallback(
+                    tool, "not_installed",
+                    command,
+                    hint=(
+                        "Native binary missing; auto-retry on Docker also failed. "
+                        "Check the docker diagnostic, or try --docker-image <image>."
+                    ),
+                    diagnostic={"native": result, "docker": docker_result},
+                ), indent=2))
+                return
             print(json.dumps(fallback(
                 tool, "not_installed",
                 command,

@@ -1,6 +1,6 @@
 {
   "name": "hackingtool",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "183+ pentesting and OSINT tools (nmap, nuclei, amass, subfinder, httpx, sherlock, maigret, trufflehog, sqlmap, impacket, and more) wired into Claude Code as a single skill. Runs locally on any OS via native Bash, WSL, or purpose-built Docker images (instrumentisto/nmap, projectdiscovery/nuclei, caffix/amass, etc.). Just ask Claude to recon a target, scan a network, investigate a username, or chain OSINT workflows — the skill picks the right backend and image automatically.",
   "author": {
     "name": "ARIACODEZ"
